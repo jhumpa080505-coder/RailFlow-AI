@@ -1,0 +1,238 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Railway-Boost AI Design System - Dark Theme */
+    --background: 220 27% 8%;
+    --foreground: 210 20% 85%;
+
+    --card: 220 23% 12%;
+    --card-foreground: 210 20% 85%;
+
+    --popover: 220 23% 12%;
+    --popover-foreground: 210 20% 85%;
+
+    --primary: 35 89% 55%;
+    --primary-foreground: 220 27% 8%;
+
+    --secondary: 220 20% 18%;
+    --secondary-foreground: 210 20% 85%;
+
+    --muted: 220 20% 15%;
+    --muted-foreground: 210 15% 60%;
+
+    --accent: 35 89% 55%;
+    --accent-foreground: 220 27% 8%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 20% 85%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 210 20% 85%;
+
+    --warning: 35 89% 55%;
+    --warning-foreground: 220 27% 8%;
+
+    --info: 217 91% 60%;
+    --info-foreground: 220 27% 8%;
+
+    --border: 220 20% 18%;
+    --input: 220 20% 18%;
+    --ring: 35 89% 55%;
+
+    --radius: 0.75rem;
+
+    /* Railway specific colors */
+    --railway-signal-red: 0 84% 60%;
+    --railway-signal-green: 142 76% 36%;
+    --railway-signal-yellow: 35 89% 55%;
+    --railway-track: 220 15% 25%;
+    --railway-steel: 210 10% 50%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(35 89% 45%));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(220 25% 14%));
+    --gradient-background: linear-gradient(180deg, hsl(var(--background)), hsl(220 30% 6%));
+
+    /* Shadows */
+    --shadow-railway: 0 10px 40px -10px hsl(var(--primary) / 0.2);
+    --shadow-card: 0 8px 30px -8px hsl(220 50% 3% / 0.4);
+    --shadow-glow: 0 0 30px hsl(var(--primary) / 0.3);
+
+    /* Animations */
+    --transition-railway: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-signal: all 0.2s ease-in-out;
+
+    /* Sidebar */
+    --sidebar-background: 220 25% 10%;
+    --sidebar-foreground: 210 20% 80%;
+    --sidebar-primary: 35 89% 55%;
+    --sidebar-primary-foreground: 220 27% 8%;
+    --sidebar-accent: 220 20% 15%;
+    --sidebar-accent-foreground: 210 20% 85%;
+    --sidebar-border: 220 20% 18%;
+    --sidebar-ring: 35 89% 55%;
+  }
+
+  [data-theme="light"] {
+    /* Railway-Boost AI Design System - Light Theme */
+    --background: 0 0% 100%;
+    --foreground: 220 20% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 15%;
+
+    --primary: 280 75% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 20% 96%;
+    --secondary-foreground: 220 20% 15%;
+
+    --muted: 210 20% 96%;
+    --muted-foreground: 220 15% 40%;
+
+    --accent: 300 80% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 280 75% 60%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 35 89% 55%;
+    --warning-foreground: 220 27% 8%;
+
+    --info: 300 80% 60%;
+    --info-foreground: 0 0% 100%;
+
+    --border: 280 15% 85%;
+    --input: 280 15% 85%;
+    --ring: 300 80% 60%;
+
+    /* Railway specific colors - Light theme */
+    --railway-signal-red: 0 84% 60%;
+    --railway-signal-green: 280 75% 60%;
+    --railway-signal-yellow: 35 89% 55%;
+    --railway-track: 280 15% 75%;
+    --railway-steel: 300 10% 50%;
+
+    /* Gradients - Light theme */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(300 80% 45%));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(280 20% 98%));
+    --gradient-background: linear-gradient(180deg, hsl(var(--background)), hsl(280 20% 98%));
+
+    /* Shadows - Light theme */
+    --shadow-railway: 0 10px 40px -10px hsl(var(--primary) / 0.15);
+    --shadow-card: 0 8px 30px -8px hsl(220 50% 30% / 0.1);
+    --shadow-glow: 0 0 30px hsl(var(--primary) / 0.2);
+
+    /* Sidebar - Light theme */
+    --sidebar-background: 280 20% 98%;
+    --sidebar-foreground: 280 20% 20%;
+    --sidebar-primary: 300 80% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 280 20% 94%;
+    --sidebar-accent-foreground: 280 20% 15%;
+    --sidebar-border: 280 15% 85%;
+    --sidebar-ring: 300 80% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground min-h-screen;
+    background: var(--gradient-background);
+    font-feature-settings: "cv11", "ss01";
+    font-variation-settings: "opsz" 32;
+  }
+
+  /* Railway themed utilities */
+  .railway-bg {
+    background-image: url('/src/assets/railway-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+
+  .railway-overlay {
+    background: hsl(var(--background) / 0.85);
+    backdrop-filter: blur(8px);
+  }
+
+  .signal-pulse {
+    animation: signal-pulse 2s infinite;
+  }
+
+  .railway-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .railway-border {
+    border: 2px solid hsl(var(--railway-track));
+    background: var(--gradient-card);
+  }
+}
+
+@layer components {
+  /* Railway Signal Animation */
+  @keyframes signal-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }
+
+  /* Track Direction Animations */
+  @keyframes track-up {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+    100% { transform: translateY(0); }
+  }
+
+  @keyframes track-down {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(4px); }
+    100% { transform: translateY(0); }
+  }
+
+  .track-direction-up:hover {
+    animation: track-up 0.6s ease-in-out;
+  }
+
+  .track-direction-down:hover {
+    animation: track-down 0.6s ease-in-out;
+  }
+
+  /* Train Control Buttons */
+  .control-button {
+    @apply relative overflow-hidden transition-all duration-300;
+    background: var(--gradient-primary);
+  }
+
+  .control-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, hsl(var(--primary-foreground) / 0.2), transparent);
+    transition: left 0.5s;
+  }
+
+  .control-button:hover::before {
+    left: 100%;
+  }
+}
